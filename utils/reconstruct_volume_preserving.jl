@@ -6,9 +6,9 @@ using Printf
 # USER SETTINGS - change only these three paths, then run this file.
 # ==============================================================================
 
-ORIGINAL_MAT_PATH = raw"C:\Users\r43341mm\OneDrive - The University of Manchester\Research\SharedData\InitialMatData\69.mat"
-CHECKPOINT_DIR = raw"C:\Users\r43341mm\OneDrive - The University of Manchester\Research\SharedData\PhaseFieldResults\69\results"
-OUTPUT_DIR = raw"C:\Users\r43341mm\OneDrive - The University of Manchester\Research\SharedData\PhaseFieldResults\69\mat_volume_preserving"
+ORIGINAL_MAT_PATH = raw"C:\Users\r43341mm\OneDrive - The University of Manchester\Research\SharedData\PhaseFieldResults\Validation3D\W0\mat/t000000.mat"
+CHECKPOINT_DIR = raw"C:\Users\r43341mm\OneDrive - The University of Manchester\Research\SharedData\PhaseFieldResults\Validation3D\W0\results"
+OUTPUT_DIR = raw"C:\Users\r43341mm\OneDrive - The University of Manchester\Research\SharedData\PhaseFieldResults\Validation3D\W0\mat_volume_preserving"
 
 # ==============================================================================
 
