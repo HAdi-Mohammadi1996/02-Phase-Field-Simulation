@@ -9,11 +9,10 @@ using MAT
 using JLD2
 import Sundials
 using ProgressLogging
-import TerminalLoggers
 
 output_dir = raw"C:\Users\r43341mm\OneDrive - The University of Manchester\Research\SharedData\PhaseFieldResults/"
-jld_dir = joinpath(output_dir, "Validation3D/results")
-mat_dir = joinpath(output_dir, "Validation3D/mat")
+jld_dir = joinpath(output_dir, "Validation3D/W+0.5/results")
+mat_dir = joinpath(output_dir, "Validation3D/W+0.5/mat")
 gif_dir = joinpath(output_dir, "gifs/Validation")
 mkpath(jld_dir)
 mkpath(mat_dir)
@@ -108,7 +107,7 @@ function main_3D!(du, u, p, t)
     A12 = 0.7
     κ11 = 1.1
     κ12 = 0.8
-    W_ca = -0.0
+    W_ca = 0.5
 
     inv_dx2 = inv(dx*dx)
     inv_dy2 = inv(dy*dy)
@@ -197,7 +196,7 @@ anim = @animate for i in 1:length(sol.u)
     @. si = sol.u[i][:, :, Int(Nz/2)] + 0.5 * c_YSZ[:, :, Int(Nz/2)]
     heatmap(x, y, si', xlabel="x", ylabel="y", color= :grays, aspect_ratio=1)
 end
-gif(anim, joinpath(gif_dir, "3D.gif"), fps = 5)
+gif(anim, joinpath(gif_dir, "3D_W+0.5.gif"), fps = 5)
 
 for (i, phi) in enumerate(sol.u)
     step = i - 1
