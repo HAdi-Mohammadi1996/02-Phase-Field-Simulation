@@ -5,10 +5,10 @@ using Printf
 # ==============================================================================
 # USER SETTINGS - change only these three paths, then run this file.
 # ==============================================================================
-
-ORIGINAL_MAT_PATH = raw"C:\Users\r43341mm\OneDrive - The University of Manchester\Research\SharedData\PhaseFieldResults\Validation3D\W0\mat/t000000.mat"
-CHECKPOINT_DIR = raw"C:\Users\r43341mm\OneDrive - The University of Manchester\Research\SharedData\PhaseFieldResults\Validation3D\W0\results"
-OUTPUT_DIR = raw"C:\Users\r43341mm\OneDrive - The University of Manchester\Research\SharedData\PhaseFieldResults\Validation3D\W0\mat_volume_preserving"
+Sample_ID = 23
+ORIGINAL_MAT_PATH = joinpath(raw"C:\Users\r43341mm\OneDrive - The University of Manchester\Research\SharedData\InitialMatData", "$(Sample_ID).mat")
+CHECKPOINT_DIR = joinpath(raw"C:\Users\r43341mm\OneDrive - The University of Manchester\Research\SharedData\PhaseFieldResults", "$(Sample_ID)", "results")
+OUTPUT_DIR = joinpath(raw"C:\Users\r43341mm\OneDrive - The University of Manchester\Research\SharedData\PhaseFieldResults", "$(Sample_ID)", "mat")
 
 # ==============================================================================
 
