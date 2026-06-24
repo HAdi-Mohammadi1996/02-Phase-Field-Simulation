@@ -5,7 +5,7 @@ using Printf
 # ==============================================================================
 # USER SETTINGS - change only these three paths, then run this file.
 # ==============================================================================
-Sample_ID = 23
+Sample_ID = 380
 ORIGINAL_MAT_PATH = joinpath(raw"C:\Users\r43341mm\OneDrive - The University of Manchester\Research\SharedData\InitialMatData", "$(Sample_ID).mat")
 CHECKPOINT_DIR = joinpath(raw"C:\Users\r43341mm\OneDrive - The University of Manchester\Research\SharedData\PhaseFieldResults", "$(Sample_ID)", "results")
 OUTPUT_DIR = joinpath(raw"C:\Users\r43341mm\OneDrive - The University of Manchester\Research\SharedData\PhaseFieldResults", "$(Sample_ID)", "mat")
