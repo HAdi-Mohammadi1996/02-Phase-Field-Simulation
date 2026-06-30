@@ -144,5 +144,7 @@ function main()
     println(output_dir)
 end
 
-# Run immediately when this file is executed from an editor or included in a REPL.
-main()
+# Run only when this file is executed directly, not when included as a utility.
+if abspath(PROGRAM_FILE) == abspath(@__FILE__)
+    main()
+end

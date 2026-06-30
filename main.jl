@@ -1,6 +1,6 @@
 
 include("utils/tanh_smoothing.jl")
-include("utils/reconstruct.jl")
+include("utils/reconstruct_volume_preserving.jl")
 import DifferentialEquations as DE
 using Plots
 using LoopVectorization
@@ -13,7 +13,7 @@ using ProgressLogging
 import TerminalLoggers
 
 # Loading the input matrix and creating the initial condition
-sample_ID = 324
+sample_ID = 131
 data_dir = raw"C:\Users\r43341mm\OneDrive - The University of Manchester\Research\SharedData\InitialMatData"
 mat_file = joinpath(data_dir, "$(sample_ID).mat")
 file = matopen(mat_file)
@@ -36,6 +36,7 @@ const tt = 8000.0
 
 c_Ni_mask = data .== 1.0
 c_YSZ_mask = data .== 2.0
+ni_voxel_count = count(c_Ni_mask)
 
 x = range(start=1, stop=Nx, length=Nx)
 y = range(start=1, stop=Ny, length=Ny)
@@ -223,7 +224,7 @@ for (i, phi) in enumerate(sol.u)
         f["time"] = sol.t[i]
     end
     mat_path = joinpath(mat_dir, "t$(lpad(step, 6, '0')).mat")
-    phase_vol = reconstruct_ternary(Array(phi), c_YSZ_mask)
+    phase_vol, _ = reconstruct_volume_preserving(Array(phi), c_YSZ_mask, ni_voxel_count)
     matopen(mat_path, "w") do f
         write(f, "C", phase_vol)
     end
